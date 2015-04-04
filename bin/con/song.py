@@ -13,4 +13,10 @@ class SongFile:
 class CentralStore:
 
     def __init__(self, song_list):
-        self.song_list = song_list
+        # song_dic:
+        # hashtable (SongFile.songId, SongFile) <- O(1)
+        self.song_dic = {}
+        for song in song_list:
+            self.song_dic[song.songId] = song
+
+    
