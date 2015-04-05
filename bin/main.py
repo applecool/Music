@@ -1,6 +1,5 @@
 import sys
 sys.path.append("..")
-print sys.path
 
 from bin.con.song import CentralStore
 from bin.ctrl.rw import load_song_list
