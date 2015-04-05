@@ -2,7 +2,7 @@ from bin.con.song import SongFile
 
 
 def load_song_list(filename):
-    file = open("../../data/" + filename, "rt")
+    file = open("../data/" + filename, "rt")
 
     tmp_song_list = []
     tmp_songId = -1
