@@ -106,7 +106,7 @@ class REPL:
     def print_list(self, cmd_list):
         if len(cmd_list) == 2:
             if cmd_list[1] == "song":
-                self.central_store.print_song_list()
+                self.central_store.print_song_list(self.central_store.song_list)
             elif cmd_list[1] == "playlist":
                 self.central_store.print_playlists()
             else:
@@ -164,10 +164,10 @@ class REPL:
         if len(cmd_list) == 2:
             if cmd_list[1] == "title":
                 self.central_store.sort_by_title(self.central_store.song_list)
-                self.central_store.print_song_list()
+                self.central_store.print_song_list(self.central_store.song_list)
             elif cmd_list[1] == "artist":
                 self.central_store.sort_by_artist(self.central_store.song_list)
-                self.central_store.print_song_list()
+                self.central_store.print_song_list(self.central_store.song_list)
             #elif cmd_list[1] == "songId":
             else:
                 print "Wrong option " + cmd_list[1]
@@ -258,8 +258,7 @@ class REPL:
                 else:
                     print "Wrong option " + cmd_list[1] + '.'
 
-                for t in tmp_result:
-                    print t
+                self.central_store.print_song_list(tmp_result)
         else:
             print "Wrong command " + ' '.join(cmd_list) + '.'
 
@@ -276,14 +275,3 @@ class REPL:
                 print "Wrong option " + cmd_list[1]
         else:
             print "Wrong command " + ' '.join(cmd_list) + '.'
-
-
-if __name__ == "__main__":
-    from bin.ctrl.rw import load_song_list
-
-    tmp_song_list = load_song_list("SongList.txt")
-
-    rEPL = REPL(CentralStore(tmp_song_list))
-
-    while True:
-        rEPL.repl()

@@ -91,16 +91,19 @@ class CentralStore:
         song_list.sort(key=lambda x: x.title)
 
 
-    def print_song_list(self):
-        for song in self.song_list:
-            print song
+    def print_song_list(self, song_list):
+        print "{0:6}  {1:32}  {2:16}".format("SongId", "Title", "Artist")
+        print '-'*58
+        for song in song_list:
+            print "{0:6}  {1:32}  {2:16}".format(song.songId, song.title, song.artist)
 
 
     def print_playlist(self, playlistId):
         print "Playlist " + str(playlistId) + ": " + self.playlists[playlistId][0]
+        print "    {0:6}  {1:32}  {2:16}".format("SongId", "Title", "Artist")
+        print '-'*62
         for song in self.playlists[playlistId][1]:
-            print "    ",
-            print song
+            print "    {0:6}  {1:32}  {2:16}".format(song.songId, song.title, song.artist)
 
 
     def print_playlists(self):
