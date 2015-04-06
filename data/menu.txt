@@ -1,4 +1,4 @@
-Main mode
+Main mode (main> )
 	create <playlist name>
 	edit <playlistId>
 	playlist <playlistId>
@@ -11,7 +11,7 @@ Main mode
 	sort <sort option>
 		sort option: title, artist
 		
-Playlist mode
+Playlist mode (playlist> )
 	delete <songId>
 	insert <songId>
 	insert_search <search option> <"string of words">

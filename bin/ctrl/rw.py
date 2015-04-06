@@ -1,7 +1,7 @@
 from bin.con.song import SongFile
 
 
-def load_song_list(filename):
+def load_song_list(filename="SongList.txt"):
     file = open("../data/" + filename, "rt")
 
     tmp_song_list = []
@@ -13,6 +13,15 @@ def load_song_list(filename):
 
     return tmp_song_list
 
+
+def load_menu(filename="menu.txt"):
+    file = open("../data/" + filename, "rt")
+
+    menu = []
+    for line in file:
+        menu.append(line)
+
+    return menu
 
 if __name__ == "__main__":
     load_song_list("SongList.txt")

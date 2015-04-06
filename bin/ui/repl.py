@@ -1,15 +1,17 @@
-from bin.con.song import CentralStore
-
 import sys
 
 
 class REPL:
 
-    def __init__(self, central_store):
+    def __init__(self, central_store, menu):
         self.central_store = central_store
+
+        self.menu = menu
 
         self.curr_menu = "main" #"main", "playlist"
         self.curr_playlistId = None
+
+        self.print_menu()
 
 
     def repl(self):
@@ -86,6 +88,10 @@ class REPL:
             print "Wrong command " + cmd_line + '.'
 
 
+    def print_menu(self):
+        for line in self.menu:
+            print line
+
     def playlist(self, cmd_list):
         if len(cmd_list) == 2:
             try:
@@ -124,8 +130,8 @@ class REPL:
 
 
     def search(self, cmd_list):
-        if len(cmd_list) == 3:
-            keyword = cmd_list[2].strip()
+        if len(cmd_list) >= 3:
+            keyword = " ".join(cmd_list[2:]).strip()
             if keyword.startswith('"') and keyword.endswith('"'):
                 keyword = keyword[1:-1]
                 tmp_result = []
@@ -230,6 +236,8 @@ class REPL:
         if cmd_list[0] == "main" and len(cmd_list) == 1:
             self.curr_menu = "main"
             self.curr_playlistId = None
+
+            self.print_menu()
         else:
             print "Wrong command " + cmd_line + '.'
 
