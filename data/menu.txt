@@ -1,0 +1,23 @@
+Main mode
+	create <playlist name>
+	edit <playlistId>
+	playlist <playlistId>
+	print <print option>
+		print option: song, playlist
+	quit
+	search <search option> <"string of words">
+		search option: title, artist
+	song <songId>
+	sort <sort option>
+		sort option: title, artist
+		
+Playlist mode
+	delete <songId>
+	insert <songId>
+	insert_search <search option> <"string of words">
+		search option: title, artist
+	print
+	search <search option> <"string of words">
+		search option: title, artist
+	sort <sort option>
+		sort option: title, artist
